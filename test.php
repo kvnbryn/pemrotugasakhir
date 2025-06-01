@@ -93,6 +93,7 @@ $total_waktu_tes_detik = count($questions) * $waktu_per_soal_detik;
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tes IQ: <?php echo htmlspecialchars($level_name); ?> - TesIQOnline</title>
     <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/test.css">
 </head>
 <body>
     <header>
