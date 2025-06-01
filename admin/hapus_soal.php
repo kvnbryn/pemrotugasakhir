@@ -1,12 +1,12 @@
 <?php
-// delete_question.php
+// hapus_soal.php
 // Pastikan file ini ada di dalam folder testIQ/admin/
 require_once '../config/db.php'; // session_start() sudah ada di db.php
 require_once 'admin_header.php'; // Untuk otentikasi admin dan variabel $conn
 
 if (!isset($_GET['id']) || !is_numeric($_GET['id'])) {
     $_SESSION['admin_message'] = ['type' => 'error', 'text' => 'ID Soal tidak valid untuk dihapus.'];
-    header("Location: manage_questions.php");
+    header("Location: manajemen_soal.php");
     exit();
 }
 
@@ -35,14 +35,14 @@ if ($question_id > 0) {
                 error_log("Gagal menghapus user_answers terkait soal ID " . $question_id . ": " . $stmt_delete_answers->error);
                  $_SESSION['admin_message'] = ['type' => 'error', 'text' => 'Gagal menghapus jawaban terkait soal. Soal tidak dihapus. Error: '.$stmt_delete_answers->error];
                 $stmt_delete_answers->close();
-                header("Location: manage_questions.php");
+                header("Location: manajemen_soal.php");
                 exit();
             }
             $stmt_delete_answers->close();
         } else {
             error_log("Gagal prepare statement untuk menghapus user_answers terkait soal ID " . $question_id . ": " . $conn->error);
             $_SESSION['admin_message'] = ['type' => 'error', 'text' => 'Gagal persiapan hapus jawaban terkait soal. Soal tidak dihapus.'];
-            header("Location: manage_questions.php");
+            header("Location: manajemen_soal.php");
             exit();
         }
 
@@ -73,7 +73,7 @@ if ($question_id > 0) {
 }
 
 $conn->close();
-header("Location: manage_questions.php");
+header("Location: manajemen_soal.php");
 exit();
 
 // Tidak ada output HTML dari file ini, hanya proses dan redirect.

@@ -146,13 +146,12 @@ if($stmt_history){
                     <p>Kamu belum pernah mengerjakan tes apapun.</p>
                 </div>
             <?php endif; ?>
-
         </div>
     </main>
 
     <footer>
         <div class="container">
-            <p>&copy; <?php echo date("Y"); ?> TesIQOnline - Tim Proyek [Nama Tim Kamu]</p>
+            <p>&copy; <?php echo date("Y"); ?> TesIQOnline - Tim Proyek</p>
         </div>
     </footer>
 

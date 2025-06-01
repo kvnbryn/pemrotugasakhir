@@ -48,7 +48,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $stmt->bind_param("issssssi", $level_id, $question_text, $option_a, $option_b, $option_c, $option_d, $correct_option, $points);
             if ($stmt->execute()) {
                 $_SESSION['admin_message'] = ['type' => 'success', 'text' => 'Soal berhasil ditambahkan!'];
-                header("Location: manage_questions.php");
+                header("Location: manajemen_soal.php");
                 exit();
             } else {
                 // Log error

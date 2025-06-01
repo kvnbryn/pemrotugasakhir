@@ -29,24 +29,8 @@ $username = $_SESSION['username'] ?? ''; // Untuk navigasi
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Papan Peringkat Tes IQ - TesIQOnline</title>
     <link rel="stylesheet" href="assets/css/style.css">
-    <style>
-        .ranking-container {
-            max-width: 800px;
-            margin: 30px auto;
-            padding: 20px 30px;
-            background-color: #fff;
-            border-radius: 8px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-        }
-        .ranking-container h2 {
-            color: #007bff;
-            text-align: center;
-            margin-bottom: 30px;
-        }
-        .trophy-gold { color: gold; }
-        .trophy-silver { color: silver; }
-        .trophy-bronze { color: #cd7f32; } /* Bronze color */
-    </style>
+    <link rel="stylesheet" href="assets/css/ranking.css">
+    <link rel="stylesheet" href="assets/css/transisi.css">
 </head>
 <body>
     <header>
@@ -125,10 +109,11 @@ $username = $_SESSION['username'] ?? ''; // Untuk navigasi
 
     <footer style="margin-top: 50px;">
         <div class="container">
-            <p>&copy; <?php echo date("Y"); ?> TesIQOnline - Tim Proyek [Nama Tim Kamu]</p>
+            <p>&copy; <?php echo date("Y"); ?> TesIQOnline - Tim Proyek</p>
         </div>
     </footer>
 
     <script src="assets/js/script.js"></script>
+    <script src="assets/js/transisi.js"></script>
 </body>
 </html>

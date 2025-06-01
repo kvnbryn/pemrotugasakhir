@@ -1,5 +1,5 @@
 <?php
-// proses_edit_question.php
+// proses_edit_soal.php
 // Pastikan file ini ada di dalam folder testIQ/admin/
 require_once '../config/db.php'; // session_start() sudah ada di db.php
 require_once 'admin_header.php'; // Untuk otentikasi admin dan variabel $conn
@@ -52,7 +52,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $stmt->bind_param("issssssii", $level_id, $question_text, $option_a, $option_b, $option_c, $option_d, $correct_option, $points, $question_id);
             if ($stmt->execute()) {
                 $_SESSION['admin_message'] = ['type' => 'success', 'text' => 'Soal berhasil diperbarui!'];
-                header("Location: manage_questions.php");
+                header("Location: manajemen_soal.php");
                 exit();
             } else {
                 // Log error
@@ -71,7 +71,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (!empty($errors)) {
         $_SESSION['form_errors_edit'] = $errors;
         $_SESSION['form_data_edit'] = $_POST; // $_POST sudah berisi semua field termasuk question_id
-        header("Location: edit_question.php?id=" . $question_id); // Redirect kembali ke form edit dengan ID
+        header("Location: edit_soal.php?id=" . $question_id); // Redirect kembali ke form edit dengan ID
         exit();
     }
 
@@ -80,7 +80,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 } else {
     // Jika diakses langsung tanpa metode POST
     $_SESSION['admin_message'] = ['type' => 'error', 'text' => 'Akses tidak sah.'];
-    header("Location: manage_questions.php");
+    header("Location: manajemen_soal.php");
     exit();
 }
 ?>

@@ -93,82 +93,6 @@ $total_waktu_tes_detik = count($questions) * $waktu_per_soal_detik;
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tes IQ: <?php echo htmlspecialchars($level_name); ?> - TesIQOnline</title>
     <link rel="stylesheet" href="assets/css/style.css">
-    <style>
-        .test-container {
-            max-width: 800px;
-            margin: 20px auto;
-            padding: 25px;
-            background-color: #fff;
-            border-radius: 8px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-        }
-        .question-block {
-            margin-bottom: 30px;
-            padding-bottom: 20px;
-            border-bottom: 1px solid #eee;
-        }
-        .question-block:last-child {
-            border-bottom: none;
-            margin-bottom: 0;
-        }
-        .question-text {
-            font-size: 1.2rem;
-            font-weight: 600;
-            margin-bottom: 15px;
-            color: #333;
-        }
-        .options label {
-            display: block;
-            background-color: #f8f9fa;
-            padding: 12px 15px;
-            margin-bottom: 10px;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out;
-            border: 1px solid #eee;
-        }
-        .options label:hover {
-            background-color: #e9ecef;
-        }
-        .options input[type="radio"] {
-            margin-right: 10px;
-            vertical-align: middle;
-        }
-        .timer {
-            position: sticky;
-            top: 70px; /* Sesuaikan dengan tinggi header jika header sticky */
-            background-color: #007bff;
-            color: white;
-            padding: 15px;
-            text-align: center;
-            font-size: 1.3rem;
-            font-weight: bold;
-            border-radius: 0 0 8px 8px;
-            z-index: 900; /* Di bawah header (jika header 1000) */
-            margin-bottom: 20px;
-        }
-         header { /* Pastikan header punya z-index lebih tinggi jika sticky */
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-         }
-        .submit-test-btn {
-            display: block;
-            width: 100%;
-            padding: 15px;
-            font-size: 1.2rem;
-            margin-top: 30px;
-        }
-        .warning-message {
-            background-color: #fff3cd;
-            color: #856404;
-            padding: 15px;
-            margin-bottom: 20px;
-            border: 1px solid #ffeeba;
-            border-radius: .25rem;
-            text-align: center;
-        }
-    </style>
 </head>
 <body>
     <header>
@@ -191,7 +115,7 @@ $total_waktu_tes_detik = count($questions) * $waktu_per_soal_detik;
     </div>
 
     <main>
-        <div class="test-container">
+        <div class="test-container" data-timeleft="<?php echo $total_waktu_tes_detik; ?>">
             <h2 style="text-align:center; margin-bottom:10px; color:#0056b3;">Tes IQ - Level: <?php echo htmlspecialchars($level_name); ?></h2>
             <p style="text-align:center; margin-bottom:25px; font-size:0.9em; color:#555;">Jumlah Soal: <?php echo count($questions); ?>. Harap jawab semua pertanyaan dengan teliti.</p>
             
@@ -234,55 +158,10 @@ $total_waktu_tes_detik = count($questions) * $waktu_per_soal_detik;
 
     <footer style="margin-top: 50px;">
         <div class="container">
-            <p>&copy; <?php echo date("Y"); ?> TesIQOnline - Tim Proyek [Nama Tim Kamu]</p>
+            <p>&copy; <?php echo date("Y"); ?> TesIQOnline - Tim Proyek</p>
         </div>
     </footer>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const timerDisplay = document.getElementById('time');
-            const testForm = document.getElementById('testForm');
-            let timeLeft = <?php echo $total_waktu_tes_detik; ?>;
-
-            function updateTimer() {
-                const minutes = Math.floor(timeLeft / 60);
-                let seconds = timeLeft % 60;
-                seconds = seconds < 10 ? '0' + seconds : seconds; // Tambah 0 di depan jika < 10
-                timerDisplay.textContent = `${minutes}:${seconds}`;
-                timeLeft--;
-
-                if (timeLeft < 0) {
-                    clearInterval(timerInterval);
-                    timerDisplay.textContent = "Waktu Habis!";
-                    if(testForm) {
-                        alert("Waktu pengerjaan tes telah habis. Jawaban Anda akan otomatis dikirim.");
-                        // Kumpulkan jawaban yang sudah dipilih sebelum submit otomatis
-                        // Walaupun browser modern akan mengirimkan apa yang sudah dipilih,
-                        // memastikan semua radio button `required` telah diisi bisa jadi problem
-                        // Untuk simplisitas, kita submit saja. Jika ada `required` yg belum, browser akan handle.
-                        testForm.submit();
-                    }
-                }
-            }
-
-            updateTimer(); 
-            const timerInterval = setInterval(updateTimer, 1000);
-
-            // Peringatan sebelum meninggalkan halaman (opsional, bisa jadi mengganggu)
-            // window.addEventListener('beforeunload', function (e) {
-            //     e.preventDefault();
-            //     e.returnValue = 'Apakah Anda yakin ingin meninggalkan halaman ini? Progres tes Anda mungkin tidak tersimpan.';
-            // });
-
-            // if(testForm) {
-            //     testForm.addEventListener('submit', function() {
-            //         window.removeEventListener('beforeunload', function(e){
-            //             e.preventDefault();
-            //             e.returnValue = '';
-            //         });
-            //     });
-            // }
-        });
-    </script>
+    <script src="assets/js/test.js"></script>
 </body>
 </html>

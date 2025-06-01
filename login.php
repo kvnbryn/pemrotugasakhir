@@ -13,6 +13,7 @@ if (isset($_SESSION['user_id'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login - TesIQOnline</title>
     <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/transisi.css">
 </head>
 <body>
     <header>
@@ -71,46 +72,12 @@ if (isset($_SESSION['user_id'])) {
 
     <footer>
         <div class="container">
-            <p>&copy; <?php echo date("Y"); ?> TesIQOnline - Tim Proyek [Nama Tim Kamu]</p>
+            <p>&copy; <?php echo date("Y"); ?> TesIQOnline - Tim Proyek</p>
         </div>
     </footer>
 
     <script src="assets/js/script.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const loginForm = document.getElementById('loginForm');
-            if (loginForm) {
-                loginForm.addEventListener('submit', function(event) {
-                    let isValid = true;
-                    
-                    const loginIdentifierInput = document.getElementById('login_identifier');
-                    const loginIdentifierError = document.getElementById('loginIdentifierError');
-                    if (loginIdentifierInput.value.trim() === '') {
-                        isValid = false;
-                        loginIdentifierError.textContent = 'Username atau Email tidak boleh kosong.';
-                        loginIdentifierInput.style.borderColor = 'red';
-                    } else {
-                        loginIdentifierError.textContent = '';
-                        loginIdentifierInput.style.borderColor = '#ddd';
-                    }
-
-                    const passwordInput = document.getElementById('password');
-                    const passwordError = document.getElementById('passwordError');
-                    if (passwordInput.value === '') {
-                        isValid = false;
-                        passwordError.textContent = 'Password tidak boleh kosong.';
-                        passwordInput.style.borderColor = 'red';
-                    } else {
-                        passwordError.textContent = '';
-                        passwordInput.style.borderColor = '#ddd';
-                    }
-
-                    if (!isValid) {
-                        event.preventDefault(); 
-                    }
-                });
-            }
-        });
-    </script>
+    <script src="assets/js/login.js"></script>
+    <script src="assets/js/transisi.js"></script>
 </body>
 </html>

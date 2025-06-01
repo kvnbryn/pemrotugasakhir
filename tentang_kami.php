@@ -8,54 +8,8 @@ require_once 'config/db.php'; // Untuk session dan navigasi dinamis
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tentang Kami - TesIQOnline</title>
     <link rel="stylesheet" href="assets/css/style.css">
-    <style>
-        .team-member-card {
-            background-color: #fff;
-            border-radius: 8px;
-            padding: 25px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.07);
-            margin-bottom: 20px;
-            text-align: center;
-        }
-        .team-member-card img {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            object-fit: cover;
-            margin-bottom: 15px;
-            border: 3px solid #007bff;
-        }
-        .team-member-card h3 {
-            font-size: 1.4rem;
-            color: #007bff;
-            margin-bottom: 5px;
-        }
-        .team-member-card p.role {
-            font-size: 1rem;
-            color: #555;
-            font-style: italic;
-            margin-bottom: 10px;
-        }
-        .team-member-card p.description {
-            font-size: 0.95rem;
-            color: #333;
-        }
-        .about-section {
-            background-color: #fff;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            margin-bottom: 30px;
-        }
-        .about-section h2 {
-            color: #0056b3;
-            margin-bottom: 15px;
-        }
-        .about-section p {
-            margin-bottom: 10px;
-            line-height: 1.7;
-        }
-    </style>
+    <link rel="stylesheet" href="assets/css/aboutus.css">
+    <link rel="stylesheet" href="assets/css/transisi.css">
 </head>
 <body>
     <header>
@@ -88,7 +42,7 @@ require_once 'config/db.php'; // Untuk session dan navigasi dinamis
         <div class="container" style="padding-top: 30px; padding-bottom: 30px;">
             <div class="about-section">
                 <h2 class="section-title" style="text-align:left; margin-bottom:20px;">Tentang Proyek TesIQOnline</h2>
-                <p>Selamat datang di TesIQOnline, sebuah platform web inovatif yang dirancang untuk mengukur dan menganalisis kemampuan kognitif Anda melalui serangkaian tes IQ yang komprehensif. Proyek ini dikembangkan sebagai bagian dari pemenuhan tugas mata kuliah [Nama Mata Kuliah Kamu] dengan tujuan untuk menerapkan konsep-konsep pengembangan web dinamis menggunakan HTML, CSS, JavaScript, PHP, dan MySQL.</p>
+                <p>Selamat datang di TesIQOnline, sebuah platform web inovatif yang dirancang untuk mengukur dan menganalisis kemampuan kognitif Anda melalui serangkaian tes IQ yang komprehensif. Proyek ini dikembangkan sebagai bagian dari pemenuhan tugas mata kuliah PEMROGRAMAN WEB dengan tujuan untuk menerapkan konsep-konsep pengembangan web dinamis menggunakan HTML, CSS, JavaScript, PHP, dan MySQL.</p>
                 <p>Kami percaya bahwa pemahaman akan kecerdasan diri sendiri adalah langkah awal untuk pengembangan potensi. Oleh karena itu, TesIQOnline hadir untuk menyediakan alat yang mudah diakses, informatif, dan menarik bagi siapa saja yang ingin mengetahui lebih dalam tentang kemampuan berpikir mereka.</p>
                 
                 <h3>Tujuan Utama Aplikasi:</h3>
@@ -120,24 +74,25 @@ require_once 'config/db.php'; // Untuk session dan navigasi dinamis
             <div class="feature-grid">
                 <div class="team-member-card">
                     <img src="https://placehold.co/120x120/007bff/ffffff?text=Foto+Anggota+1" alt="[Foto Anggota Tim 1]" onerror="this.onerror=null;this.src='https://placehold.co/120x120/cccccc/000000?text=Gagal+Muat';">
-                    <h3>[Nama Anggota 1]</h3>
-                    <p class="role">[NIM Anggota 1] - [Peran dalam Tim, misal: Frontend Developer]</p>
-                    <p class="description">[Deskripsi singkat atau kontribusi anggota 1. Misal: Bertanggung jawab atas desain antarmuka dan interaksi pengguna.]</p>
+                    <h3>KEVIN BRYAN KALENGKONGAN</h3>
+                    <p class="role">[220211060166] - [Berperan aktif sebagai Backend Developer]</p>
+                    <p class="description">[Mengembangkan logika server, database, dan manajemen data.]</p>
                 </div>
                 
                 <div class="team-member-card">
                     <img src="https://placehold.co/120x120/28a745/ffffff?text=Foto+Anggota+2" alt="[Foto Anggota Tim 2]" onerror="this.onerror=null;this.src='https://placehold.co/120x120/cccccc/000000?text=Gagal+Muat';">
-                    <h3>[Nama Anggota 2]</h3>
-                    <p class="role">[NIM Anggota 2] - [Peran dalam Tim, misal: Backend Developer]</p>
-                    <p class="description">[Deskripsi singkat atau kontribusi anggota 2. Misal: Mengembangkan logika server, database, dan manajemen data.]</p>
+                    <h3>CLAYTON BEJR JOSHUA WUISAN</h3>
+                    <p class="role">[220211060211] - [Berperan aktif sebagai Frontend Developer]</p>
+                    <p class="description">[Bertanggung jawab atas desain antarmuka dan interaksi pengguna.]</p>
                 </div>
                 
                 <div class="team-member-card">
                      <img src="https://placehold.co/120x120/ffc107/000000?text=Foto+Anggota+3" alt="[Foto Anggota Tim 3]" onerror="this.onerror=null;this.src='https://placehold.co/120x120/cccccc/000000?text=Gagal+Muat';">
-                    <h3>[Nama Anggota 3]</h3>
-                    <p class="role">[NIM Anggota 3] - [Peran dalam Tim, misal: Full-stack/Dokumentasi]</p>
-                    <p class="description">[Deskripsi singkat atau kontribusi anggota 3. Misal: Membantu pengembangan frontend dan backend, serta menyusun dokumentasi proyek.]</p>
+                    <h3>M.GIBRAN ALKATIRI</h3>
+                    <p class="role">[220211060093] - [Berperan dalam Tim sebagai Full-stack/Dokumentasi]</p>
+                    <p class="description">[Membantu pengembangan frontend dan backend, serta menyusun dokumentasi proyek.]</p>
                 </div>
+
                  <?php /*
                  <div class="team-member-card">
                     <img src="https://placehold.co/120x120/6f42c1/ffffff?text=Foto+Anggota+4" alt="[Foto Anggota Tim 4]" onerror="this.onerror=null;this.src='https://placehold.co/120x120/cccccc/000000?text=Gagal+Muat';">
@@ -190,10 +145,11 @@ require_once 'config/db.php'; // Untuk session dan navigasi dinamis
 
     <footer>
         <div class="container">
-            <p>&copy; <?php echo date("Y"); ?> TesIQOnline - Tim Proyek [Nama Tim Kamu]</p>
+            <p>&copy; <?php echo date("Y"); ?> TesIQOnline - Tim Proyek</p>
         </div>
     </footer>
 
     <script src="assets/js/script.js"></script>
+    <script src="assets/js/transisi.js"></script>
 </body>
 </html>

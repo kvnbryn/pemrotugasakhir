@@ -8,6 +8,7 @@ require_once 'config/db.php';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Selamat Datang di Tes IQ Online</title>
     <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/transisi.css">
 </head>
 <body>
     <header>
@@ -86,11 +87,12 @@ require_once 'config/db.php';
 
     <footer>
         <div class="container">
-            <p>&copy; <?php echo date("Y"); ?> TesIQOnline - Tim Proyek [Nama Tim Kamu]. Hak Cipta Dilindungi.</p>
-            <p>Untuk keperluan tugas Mata Kuliah [Nama Mata Kuliah Kamu]</p>
+            <p>&copy; <?php echo date("Y"); ?> TesIQOnline - Tim Proyek. Hak Cipta Dilindungi.</p>
+            <p>Untuk keperluan tugas Mata Kuliah [PEMROGRAMAN WEB]</p>
         </div>
     </footer>
 
     <script src="assets/js/script.js"></script>
+    <script src="assets/js/transisi.js"></script>
 </body>
 </html>

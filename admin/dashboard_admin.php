@@ -29,7 +29,7 @@ $total_tests_taken = $conn->query("SELECT COUNT(*) as count FROM user_tests")->f
     <div class="card" style="background-color: #e6fff2; border-left: 5px solid #28a745;">
         <h3>Total Soal Tersedia</h3>
         <p style="font-size: 2em; font-weight: bold; color: #28a745;"><?php echo $total_questions; ?></p>
-        <a href="manage_questions.php" class="btn btn-primary" style="font-size:0.9em; padding: 5px 10px; background-color:#28a745; margin-top:10px;">Kelola Soal</a>
+        <a href="manajemen_soal.php" class="btn btn-primary" style="font-size:0.9em; padding: 5px 10px; background-color:#28a745; margin-top:10px;">Kelola Soal</a>
     </div>
     <div class="card" style="background-color: #fff3cd; border-left: 5px solid #ffc107;">
         <h3>Total Tes Dikerjakan</h3>
@@ -41,7 +41,7 @@ $total_tests_taken = $conn->query("SELECT COUNT(*) as count FROM user_tests")->f
 <div style="margin-top: 40px; padding: 20px; background-color: #f9f9f9; border-radius: 5px;">
     <h4>Aktivitas Cepat:</h4>
     <ul>
-        <li><a href="manage_questions.php" class="action-button" style="background-color:#007bff;">Lihat & Kelola Semua Soal</a></li>
+        <li><a href="manajemen_soal.php" class="action-button" style="background-color:#007bff;">Lihat & Kelola Semua Soal</a></li>
         <li><a href="add_question.php" class="action-button">Tambah Soal Baru</a></li>
         </ul>
 </div>

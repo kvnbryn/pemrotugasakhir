@@ -1,0 +1,26 @@
+.ranking-container {
+  max-width: 800px;
+  margin: 30px auto;
+  padding: 20px 30px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+.ranking-container h2 {
+  color: #007bff;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.trophy-gold {
+  color: gold;
+}
+
+.trophy-silver {
+  color: silver;
+}
+
+.trophy-bronze {
+  color: #cd7f32;
+} /* Bronze color */

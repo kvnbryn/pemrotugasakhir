@@ -1,5 +1,5 @@
 <?php
-// edit_question.php
+// edit_soal.php
 // Pastikan file ini ada di dalam folder testIQ/admin/
 $page_title = "Edit Soal - TesIQOnline";
 require_once 'admin_header.php'; // Include header admin, $levels_admin sudah ada
@@ -7,7 +7,7 @@ require_once 'admin_header.php'; // Include header admin, $levels_admin sudah ad
 $question_id = isset($_GET['id']) ? (int)$_GET['id'] : 0;
 $form_errors = [];
 
-// Jika form disubmit untuk update (dari proses_edit_question.php jika ada error)
+// Jika form disubmit untuk update (dari proses_edit_soal.php jika ada error)
 if (isset($_SESSION['form_data_edit'])) {
     $form_data = $_SESSION['form_data_edit'];
     $question_text = $form_data['question_text'] ?? '';
@@ -39,7 +39,7 @@ if (isset($_SESSION['form_data_edit'])) {
             $level_id_selected = $question_data['level_id'];
         } else {
             $_SESSION['admin_message'] = ['type' => 'error', 'text' => 'Soal tidak ditemukan.'];
-            header("Location: manage_questions.php");
+            header("Location: manajemen_soal.php");
             exit();
         }
         $stmt->close();
@@ -47,12 +47,12 @@ if (isset($_SESSION['form_data_edit'])) {
         // Log error
         error_log("Gagal prepare statement untuk mengambil data soal edit: " . $conn->error);
         $_SESSION['admin_message'] = ['type' => 'error', 'text' => 'Terjadi kesalahan server saat mengambil data soal.'];
-        header("Location: manage_questions.php");
+        header("Location: manajemen_soal.php");
         exit();
     }
 } else {
     $_SESSION['admin_message'] = ['type' => 'error', 'text' => 'ID Soal tidak valid untuk diedit.'];
-    header("Location: manage_questions.php");
+    header("Location: manajemen_soal.php");
     exit();
 }
 
@@ -65,7 +65,7 @@ if (isset($_SESSION['form_errors_edit'])) {
 
 <h2 class="page-title"><?php echo $page_title; ?> (ID: <?php echo $question_id; ?>)</h2>
 
-<a href="manage_questions.php" class="action-button" style="margin-bottom: 20px; background-color:#6c757d;">&laquo; Kembali ke Daftar Soal</a>
+<a href="manajemen_soal.php" class="action-button" style="margin-bottom: 20px; background-color:#6c757d;">&laquo; Kembali ke Daftar Soal</a>
 
 <?php if (!empty($form_errors)) : ?>
     <div class="message error" style="margin-bottom:15px;">
@@ -76,7 +76,7 @@ if (isset($_SESSION['form_errors_edit'])) {
     </div>
 <?php endif; ?>
 
-<form action="proses_edit_question.php" method="POST" class="form-container" style="max-width: 700px; margin-left:auto; margin-right:auto;">
+<form action="proses_edit_soal.php" method="POST" class="form-container" style="max-width: 700px; margin-left:auto; margin-right:auto;">
     <input type="hidden" name="question_id" value="<?php echo $question_id; ?>">
 
     <div class="form-group">

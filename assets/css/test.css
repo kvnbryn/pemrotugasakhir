@@ -1,0 +1,85 @@
+.test-container {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 25px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.question-block {
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #eee;
+}
+
+.question-block:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+}
+
+.question-text {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.options label {
+  display: block;
+  background-color: #f8f9fa;
+  padding: 12px 15px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+  border: 1px solid #eee;
+}
+
+.options label:hover {
+  background-color: #e9ecef;
+}
+
+.options input[type="radio"] {
+  margin-right: 10px;
+  vertical-align: middle;
+}
+
+.timer {
+  position: sticky;
+  top: 70px; /* Sesuaikan dengan tinggi header jika header sticky */
+  background-color: #007bff;
+  color: white;
+  padding: 15px;
+  text-align: center;
+  font-size: 1.3rem;
+  font-weight: bold;
+  border-radius: 0 0 8px 8px;
+  z-index: 900; /* Di bawah header (jika header 1000) */
+  margin-bottom: 20px;
+}
+
+header {
+  /* Pastikan header punya z-index lebih tinggi jika sticky */
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.submit-test-btn {
+  display: block;
+  width: 100%;
+  padding: 15px;
+  font-size: 1.2rem;
+  margin-top: 30px;
+}
+
+.warning-message {
+  background-color: #fff3cd;
+  color: #856404;
+  padding: 15px;
+  margin-bottom: 20px;
+  border: 1px solid #ffeeba;
+  border-radius: 0.25rem;
+  text-align: center;
+}

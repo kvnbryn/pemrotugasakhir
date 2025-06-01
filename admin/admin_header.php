@@ -27,63 +27,7 @@ if ($result_levels_admin && $result_levels_admin->num_rows > 0) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../assets/css/style.css">
-    <style>
-        /* Tambahan style khusus untuk admin jika diperlukan */
-        .admin-nav ul {
-            display: flex;
-            justify-content: center; /* Tengahkan navigasi */
-            padding-left: 0; /* Hapus padding default dari ul */
-        }
-        .admin-nav ul li {
-            margin: 0 15px; /* Jarak antar item navigasi */
-        }
-        .admin-nav ul li a {
-            padding: 8px 15px;
-        }
-        .admin-container {
-            width: 95%;
-            max-width: 1200px;
-            margin: 20px auto;
-            padding: 20px;
-            background-color: #fff;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-        .page-title {
-            text-align: center;
-            color: #007bff;
-            margin-bottom: 25px;
-        }
-        .action-button {
-            display: inline-block;
-            padding: 10px 20px;
-            margin-bottom: 20px;
-            background-color: #28a745;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-            font-weight: bold;
-        }
-        .action-button:hover {
-            background-color: #218838;
-        }
-         .action-button.edit {
-            background-color: #ffc107;
-            color: #333;
-        }
-        .action-button.edit:hover {
-            background-color: #e0a800;
-        }
-        .action-button.delete {
-            background-color: #dc3545;
-        }
-        .action-button.delete:hover {
-            background-color: #c82333;
-        }
-        .content-table th, .content-table td {
-             border: 1px solid #dddddd; /* Garis batas lebih jelas untuk tabel admin */
-        }
-    </style>
+    <link rel="stylesheet" href="../assets/css/admin.css">
 </head>
 <body>
     <header>
@@ -94,7 +38,7 @@ if ($result_levels_admin && $result_levels_admin->num_rows > 0) {
             <nav class="admin-nav">
                 <ul>
                     <li><a href="dashboard_admin.php" class="<?php echo basename($_SERVER['PHP_SELF']) == 'dashboard_admin.php' ? 'active' : ''; ?>">Dashboard</a></li>
-                    <li><a href="manage_questions.php" class="<?php echo basename($_SERVER['PHP_SELF']) == 'manage_questions.php' || basename($_SERVER['PHP_SELF']) == 'add_question.php' || basename($_SERVER['PHP_SELF']) == 'edit_question.php' ? 'active' : ''; ?>">Kelola Soal</a></li>
+                    <li><a href="manajemen_soal.php" class="<?php echo basename($_SERVER['PHP_SELF']) == 'manajemen_soal.php' || basename($_SERVER['PHP_SELF']) == 'add_question.php' || basename($_SERVER['PHP_SELF']) == 'edit_soal.php' ? 'active' : ''; ?>">Kelola Soal</a></li>
                     <li><a href="logout_admin.php">Logout (<?php echo htmlspecialchars($admin_username); ?>)</a></li>
                 </ul>
             </nav>

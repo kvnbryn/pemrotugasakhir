@@ -36,7 +36,7 @@ if (isset($_SESSION['form_errors'])) {
 
 <h2 class="page-title"><?php echo $page_title; ?></h2>
 
-<a href="manage_questions.php" class="action-button" style="margin-bottom: 20px; background-color:#6c757d;">&laquo; Kembali ke Daftar Soal</a>
+<a href="manajemen_soal.php" class="action-button" style="margin-bottom: 20px; background-color:#6c757d;">&laquo; Kembali ke Daftar Soal</a>
 
 <?php if (!empty($form_errors)) : ?>
     <div class="message error" style="margin-bottom:15px;">

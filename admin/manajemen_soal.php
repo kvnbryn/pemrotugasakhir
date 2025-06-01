@@ -1,5 +1,5 @@
 <?php
-// manage_questions.php
+// manajemen_soal.php
 // Pastikan file ini ada di dalam folder testIQ/admin/
 $page_title = "Kelola Soal Tes IQ - TesIQOnline";
 require_once 'admin_header.php'; // Include header admin
@@ -77,7 +77,7 @@ $stmt_questions->close();
 
 <a href="add_question.php" class="action-button" style="margin-bottom: 20px;">+ Tambah Soal Baru</a>
 
-<form method="GET" action="manage_questions.php" style="margin-bottom: 20px; background-color:#f8f9fa; padding:15px; border-radius:5px;">
+<form method="GET" action="manajemen_soal.php" style="margin-bottom: 20px; background-color:#f8f9fa; padding:15px; border-radius:5px;">
     <label for="level_filter">Filter berdasarkan Level:</label>
     <select name="level_filter" id="level_filter" onchange="this.form.submit()">
         <option value="">Semua Level</option>
@@ -113,8 +113,8 @@ $stmt_questions->close();
                         <td><?php echo htmlspecialchars($question['correct_option']); ?></td>
                         <td><?php echo htmlspecialchars($question['points']); ?></td>
                         <td class="action-links">
-                            <a href="edit_question.php?id=<?php echo $question['id']; ?>" class="action-button edit" style="padding:5px 8px; font-size:0.8em; margin-right:5px;">Edit</a>
-                            <a href="delete_question.php?id=<?php echo $question['id']; ?>" class="action-button delete" style="padding:5px 8px; font-size:0.8em;" onclick="return confirm('Apakah Anda yakin ingin menghapus soal ini?');">Hapus</a>
+                            <a href="edit_soal.php?id=<?php echo $question['id']; ?>" class="action-button edit" style="padding:5px 8px; font-size:0.8em; margin-right:5px;">Edit</a>
+                            <a href="hapus_soal.php?id=<?php echo $question['id']; ?>" class="action-button delete" style="padding:5px 8px; font-size:0.8em;" onclick="return confirm('Apakah Anda yakin ingin menghapus soal ini?');">Hapus</a>
                         </td>
                     </tr>
                 <?php endforeach; ?>
