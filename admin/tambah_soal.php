@@ -1,5 +1,5 @@
 <?php
-// add_question.php
+// tambah_soal.php
 // Pastikan file ini ada di dalam folder testIQ/admin/
 $page_title = "Tambah Soal Baru - TesIQOnline";
 require_once 'admin_header.php'; // Include header admin, $levels_admin sudah ada dari sini
@@ -48,7 +48,7 @@ if (isset($_SESSION['form_errors'])) {
 <?php endif; ?>
 
 
-<form action="proses_add_question.php" method="POST" class="form-container" style="max-width: 700px; margin-left:auto; margin-right:auto;">
+<form action="proses_tambah_soal.php" method="POST" class="form-container" style="max-width: 700px; margin-left:auto; margin-right:auto;">
     <div class="form-group">
         <label for="level_id">Level Tes</label>
         <select name="level_id" id="level_id" required>

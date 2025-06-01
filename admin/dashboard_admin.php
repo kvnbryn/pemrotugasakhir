@@ -42,7 +42,7 @@ $total_tests_taken = $conn->query("SELECT COUNT(*) as count FROM user_tests")->f
     <h4>Aktivitas Cepat:</h4>
     <ul>
         <li><a href="manajemen_soal.php" class="action-button" style="background-color:#007bff;">Lihat & Kelola Semua Soal</a></li>
-        <li><a href="add_question.php" class="action-button">Tambah Soal Baru</a></li>
+        <li><a href="tambah_soal.php" class="action-button">Tambah Soal Baru</a></li>
         </ul>
 </div>
 

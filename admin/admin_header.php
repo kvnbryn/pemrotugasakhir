@@ -38,7 +38,7 @@ if ($result_levels_admin && $result_levels_admin->num_rows > 0) {
             <nav class="admin-nav">
                 <ul>
                     <li><a href="dashboard_admin.php" class="<?php echo basename($_SERVER['PHP_SELF']) == 'dashboard_admin.php' ? 'active' : ''; ?>">Dashboard</a></li>
-                    <li><a href="manajemen_soal.php" class="<?php echo basename($_SERVER['PHP_SELF']) == 'manajemen_soal.php' || basename($_SERVER['PHP_SELF']) == 'add_question.php' || basename($_SERVER['PHP_SELF']) == 'edit_soal.php' ? 'active' : ''; ?>">Kelola Soal</a></li>
+                    <li><a href="manajemen_soal.php" class="<?php echo basename($_SERVER['PHP_SELF']) == 'manajemen_soal.php' || basename($_SERVER['PHP_SELF']) == 'tambah_soal.php' || basename($_SERVER['PHP_SELF']) == 'edit_soal.php' ? 'active' : ''; ?>">Kelola Soal</a></li>
                     <li><a href="logout_admin.php">Logout (<?php echo htmlspecialchars($admin_username); ?>)</a></li>
                 </ul>
             </nav>

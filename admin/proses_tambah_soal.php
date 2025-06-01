@@ -1,5 +1,5 @@
 <?php
-// proses_add_question.php
+// proses_tambah_soal.php
 // Pastikan file ini ada di dalam folder testIQ/admin/
 require_once '../config/db.php'; // session_start() sudah ada di db.php
 require_once 'admin_header.php'; // Untuk otentikasi admin dan variabel $conn
@@ -67,7 +67,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (!empty($errors)) {
         $_SESSION['form_errors'] = $errors;
         $_SESSION['form_data'] = $_POST;
-        header("Location: add_question.php");
+        header("Location: tambah_soal.php");
         exit();
     }
 
@@ -76,7 +76,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 } else {
     // Jika diakses langsung tanpa metode POST
     $_SESSION['admin_message'] = ['type' => 'error', 'text' => 'Akses tidak sah.'];
-    header("Location: add_question.php");
+    header("Location: tambah_soal.php");
     exit();
 }
 ?>

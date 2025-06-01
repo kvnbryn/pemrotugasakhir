@@ -75,7 +75,7 @@ $stmt_questions->close();
 
 <h2 class="page-title"><?php echo $page_title; ?></h2>
 
-<a href="add_question.php" class="action-button" style="margin-bottom: 20px;">+ Tambah Soal Baru</a>
+<a href="tambah_soal.php" class="action-button" style="margin-bottom: 20px;">+ Tambah Soal Baru</a>
 
 <form method="GET" action="manajemen_soal.php" style="margin-bottom: 20px; background-color:#f8f9fa; padding:15px; border-radius:5px;">
     <label for="level_filter">Filter berdasarkan Level:</label>
