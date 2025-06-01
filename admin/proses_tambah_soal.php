@@ -42,10 +42,41 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $errors[] = "Poin harus berupa angka positif.";
     }
 
+    // Hitung nomor urut soal untuk level_id yang dipilih
     if (empty($errors)) {
-        $stmt = $conn->prepare("INSERT INTO questions (level_id, question_text, option_a, option_b, option_c, option_d, correct_option, points) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+        // Cek duplikasi soal
+        $checkStmt = $conn->prepare("SELECT COUNT(*) FROM questions WHERE question_text = ? AND level_id = ?");
+        if ($checkStmt) {
+            $checkStmt->bind_param("si", $question_text, $level_id);
+            $checkStmt->execute();
+            $checkStmt->bind_result($count);
+            $checkStmt->fetch();
+            $checkStmt->close();
+
+            if ($count > 0) {
+                $errors[] = "Soal dengan teks yang sama sudah ada di level ini.";
+            }
+        }
+
+        //Jika tidak ada error, hitung question_number
+        if (empty($errors)) {
+            $numberStmt = $conn->prepare("SELECT MAX(question_number) FROM questions WHERE level_id = ?");
+            $numberStmt->bind_param("i", $level_id);
+            $numberStmt->execute();
+            $numberStmt->bind_result($last_number);
+            $numberStmt->fetch();
+            $numberStmt->close();
+
+            $question_number = $last_number ? $last_number + 1 : 1; // Jika null (soal pertama), mulai dari 1
+        }
+    }
+
+
+
+    if (empty($errors)) {
+        $stmt = $conn->prepare("INSERT INTO questions (level_id, question_number, question_text, option_a, option_b, option_c, option_d, correct_option, points) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
         if ($stmt) {
-            $stmt->bind_param("issssssi", $level_id, $question_text, $option_a, $option_b, $option_c, $option_d, $correct_option, $points);
+            $stmt->bind_param("iissssssi", $level_id, $question_number, $question_text, $option_a, $option_b, $option_c, $option_d, $correct_option, $points);
             if ($stmt->execute()) {
                 $_SESSION['admin_message'] = ['type' => 'success', 'text' => 'Soal berhasil ditambahkan!'];
                 header("Location: manajemen_soal.php");

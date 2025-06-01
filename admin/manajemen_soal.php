@@ -19,7 +19,7 @@ $offset = ($page - 1) * $limit;
 $filter_level_id = isset($_GET['level_filter']) && is_numeric($_GET['level_filter']) ? (int)$_GET['level_filter'] : null;
 
 // Bangun query dasar
-$sql_questions = "SELECT q.id, q.question_text, q.correct_option, q.points, l.level_name 
+$sql_questions = "SELECT q.id, q.question_number, q.question_text, q.correct_option, q.points, l.level_name 
                   FROM questions q 
                   JOIN levels l ON q.level_id = l.id";
 $sql_count = "SELECT COUNT(*) as total FROM questions q";
@@ -39,7 +39,7 @@ if (!empty($where_clauses)) {
     $sql_count .= " WHERE " . implode(" AND ", $where_clauses);
 }
 
-$sql_questions .= " ORDER BY l.id ASC, q.id DESC LIMIT ? OFFSET ?";
+$sql_questions .= " ORDER BY l.id ASC, q.question_number ASC LIMIT ? OFFSET ?";
 $params[] = $limit;
 $params[] = $offset;
 $types .= "ii";
@@ -96,7 +96,7 @@ $stmt_questions->close();
         <table class="content-table">
             <thead>
                 <tr>
-                    <th>ID Soal</th>
+                    <th>No Soal</th>
                     <th>Teks Pertanyaan (Potongan)</th>
                     <th>Level</th>
                     <th>Kunci Jawaban</th>
@@ -107,7 +107,7 @@ $stmt_questions->close();
             <tbody>
                 <?php foreach ($questions_list as $question) : ?>
                     <tr>
-                        <td><?php echo $question['id']; ?></td>
+                        <td><?php echo $question['question_number']; ?></td>
                         <td><?php echo htmlspecialchars(substr($question['question_text'], 0, 70)) . (strlen($question['question_text']) > 70 ? '...' : ''); ?></td>
                         <td><?php echo htmlspecialchars($question['level_name']); ?></td>
                         <td><?php echo htmlspecialchars($question['correct_option']); ?></td>

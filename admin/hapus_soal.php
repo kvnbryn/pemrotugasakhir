@@ -19,10 +19,14 @@ if ($question_id > 0) {
     // Solusi: ON DELETE SET NULL atau ON DELETE CASCADE pada foreign key di user_answers, atau hapus dulu user_answers terkait.
     // Untuk saat ini, kita asumsikan bisa langsung dihapus atau foreign key di user_answers mengizinkan ON DELETE CASCADE atau SET NULL.
 
-    $stmt_check = $conn->prepare("SELECT id FROM questions WHERE id = ?");
+    $stmt_check = $conn->prepare("SELECT question_number, level_id FROM questions WHERE id = ?");
     $stmt_check->bind_param("i", $question_id);
     $stmt_check->execute();
     $result_check = $stmt_check->get_result();
+    $row = $result_check->fetch_assoc();
+    $question_number = $row['question_number'];
+    $level_id = $row['level_id'];
+
 
     if ($result_check->num_rows == 1) {
         // Hapus dulu jawaban terkait di user_answers untuk menghindari masalah foreign key constraint
@@ -52,7 +56,7 @@ if ($question_id > 0) {
         if ($stmt_delete_question) {
             $stmt_delete_question->bind_param("i", $question_id);
             if ($stmt_delete_question->execute()) {
-                $_SESSION['admin_message'] = ['type' => 'success', 'text' => 'Soal (ID: ' . $question_id . ') dan jawaban terkait berhasil dihapus.'];
+                $_SESSION['admin_message'] = ['type' => 'success', 'text' => "Soal No $question_number dari level $level_id berhasil dihapus."];
             } else {
                 // Log error
                 error_log("Gagal execute statement penghapusan soal ID " . $question_id . ": " . $stmt_delete_question->error);
